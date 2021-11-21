@@ -17,11 +17,12 @@ class store_details extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.all(20.0),
         children: [
-          miCardNegocio(url: negocio.Foto, texto: negocio.Nombre+' '+negocio.Direccion),
+          miCardNegocio(url: negocio.Foto, texto: negocio.Nombre+
+              '\n'+negocio.Categorias+'\n'+negocio.Productos+'\n'+negocio.Telefono.toString()+
+              '\n'+negocio.Celular.toString()+'\n'+negocio.Direccion+'\n'+negocio.Geolocalizacion+'\n'),
           ElevatedButton(
               onPressed: (){
                 launch(negocio.Web);
-
               }, child: Text('Ir a '+negocio.Web))
         ],
       ),

@@ -61,7 +61,7 @@ class _Category_SearchState extends State<Category_Search> {
                       print(listado[i]);
                       datosNegocio n= datosNegocio(listado[i]['Nombre'], listado[i]['Categorias'],
                           listado[i]['Celular'], listado[i]['Direccion'], listado[i]['Foto'],
-                          listado[i]['Geolocaclizacion'], listado[i]['Logo'], listado[i]['Productos'],
+                          listado[i]['Geolocalizacion'], listado[i]['Logo'], listado[i]['Productos'],
                           listado[i]['Telefono'], listado[i]['Web']);
                       Navigator.push(context, MaterialPageRoute(builder: (context)=>store_details(negocio: n)));
                     },
