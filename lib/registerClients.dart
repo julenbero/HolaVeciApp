@@ -34,11 +34,11 @@ class _registerClientsState extends State<registerClients> {
               controller: Cedula,
               style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
-                  fillColor: Colors.lightBlue,
+                  fillColor: Colors.lightBlueAccent,
                   filled: true,
                   icon: Icon(Icons.three_p, color: Colors.blue, size: 30),
                   hintText: 'Ingrese número de cédula',
-                  hintStyle: TextStyle(color: Colors.yellow,
+                  hintStyle: TextStyle(color: Colors.white,
                       fontStyle: FontStyle.italic,
                       fontSize: 20)
               ),
@@ -50,11 +50,11 @@ class _registerClientsState extends State<registerClients> {
               controller: Nombre,
               style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
-                  fillColor: Colors.lightBlue,
+                  fillColor: Colors.lightBlueAccent,
                   filled: true,
                   icon: Icon(Icons.three_p, color: Colors.blue, size: 30),
                   hintText: 'Ingrese su nombre',
-                  hintStyle: TextStyle(color: Colors.yellow,
+                  hintStyle: TextStyle(color: Colors.white,
                       fontStyle: FontStyle.italic,
                       fontSize: 20)
               ),
@@ -66,11 +66,11 @@ class _registerClientsState extends State<registerClients> {
               controller: Direccion,
               style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
-                  fillColor: Colors.lightBlue,
+                  fillColor: Colors.lightBlueAccent,
                   filled: true,
                   icon: Icon(Icons.three_p, color: Colors.blue, size: 30),
                   hintText: 'Ingrese sus apellidos',
-                  hintStyle: TextStyle(color: Colors.yellow,
+                  hintStyle: TextStyle(color: Colors.white,
                       fontStyle: FontStyle.italic,
                       fontSize: 20)
               ),
@@ -82,11 +82,11 @@ class _registerClientsState extends State<registerClients> {
               controller: Telefono,
               style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
-                  fillColor: Colors.lightBlue,
+                  fillColor: Colors.lightBlueAccent,
                   filled: true,
                   icon: Icon(Icons.three_p, color: Colors.blue, size: 30),
-                  hintText: 'Ingrese su correo electrónico',
-                  hintStyle: TextStyle(color: Colors.yellow,
+                  hintText: 'Ingrese su teléfono',
+                  hintStyle: TextStyle(color: Colors.white,
                       fontStyle: FontStyle.italic,
                       fontSize: 20)
               ),
@@ -98,11 +98,11 @@ class _registerClientsState extends State<registerClients> {
               controller: Celular,
               style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
-                  fillColor: Colors.lightBlue,
+                  fillColor: Colors.lightBlueAccent,
                   filled: true,
                   icon: Icon(Icons.three_p, color: Colors.blue, size: 30),
                   hintText: 'Ingrese número de celular',
-                  hintStyle: TextStyle(color: Colors.yellow,
+                  hintStyle: TextStyle(color: Colors.white,
                       fontStyle: FontStyle.italic,
                       fontSize: 20)
               ),
@@ -118,10 +118,10 @@ class _registerClientsState extends State<registerClients> {
                   print('Campos vacíos');
                 } else {
                   cliente.doc(Cedula.text).set({
-                    'nombre': Nombre.text,
-                    'apellido': Direccion.text,
-                    'correo': Telefono.text,
-                    'celular': Celular.text
+                    'Nombre': Nombre.text,
+                    'Direccion': Direccion.text,
+                    'Telefono': Telefono.text,
+                    'Celular': Celular.text
                   });
                 }
               },
