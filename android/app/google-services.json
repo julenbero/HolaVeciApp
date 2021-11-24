@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "348273895198",
-    "project_id": "hola-veci-app",
-    "storage_bucket": "hola-veci-app.appspot.com"
+    "project_number": "285752071485",
+    "project_id": "hola-veci-app-88f61",
+    "storage_bucket": "hola-veci-app-88f61.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:348273895198:android:12d0641413d652e1b74b0f",
+        "mobilesdk_app_id": "1:285752071485:android:42340b64caddb02ffbe154",
         "android_client_info": {
           "package_name": "com.grupo3.holaveci"
         }
       },
       "oauth_client": [
         {
-          "client_id": "348273895198-bo35ggerps3ha169cgig2675kqn1kunk.apps.googleusercontent.com",
+          "client_id": "285752071485-i5lc67lu8p27009tj8ujo6q3flnnp8io.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAfOeUo7_r_n7w-TrXscunogAMTTQgp_Aw"
+          "current_key": "AIzaSyDPGaUoUeLBMhL6h1HHeQcAyiDaukeu41g"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "348273895198-bo35ggerps3ha169cgig2675kqn1kunk.apps.googleusercontent.com",
+              "client_id": "285752071485-i5lc67lu8p27009tj8ujo6q3flnnp8io.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
