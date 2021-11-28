@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
+//import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:holaveci/store_search.dart';
+import 'package:holaveci/drawer_menu.dart';
+//import 'package:holaveci/store_search.dart';
 
 class Store_Main extends StatefulWidget {
   const Store_Main({Key? key}) : super(key: key);
@@ -74,13 +75,14 @@ class _Store_MainState extends State<Store_Main> {
                 }),
           ),
         ),
-      floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => Store_Search()));
-          },
-          icon: Icon(Icons.youtube_searched_for),
-          label: Text("Busqueda")),
+      drawer: DrawerNavigation(),
+      // floatingActionButton: FloatingActionButton.extended(
+      //     onPressed: () {
+      //       Navigator.push(context,
+      //           MaterialPageRoute(builder: (context) => Store_Search()));
+      //     },
+      //     icon: Icon(Icons.youtube_searched_for),
+      //     label: Text("Busqueda")),
     );
   }
 }
