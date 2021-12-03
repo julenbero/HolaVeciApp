@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:holaveci/orders.dart';
 import 'package:holaveci/registerClients.dart';
 import 'package:holaveci/store_search.dart';
 
@@ -33,6 +34,14 @@ class DrawerNavigation extends StatelessWidget {
             onTap: (){
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => registerClients()));
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.add_shopping_cart),
+            title: Text("Modulo de Pedidos"),
+            onTap: (){
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => orders()));
             },
           )
         ],
