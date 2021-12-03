@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:holaveci/products_search.dart';
 import 'package:holaveci/category_search.dart';
+import 'package:basic_utils/basic_utils.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Store_Search extends StatelessWidget {
   TextEditingController datobusqueda = TextEditingController();
@@ -41,7 +43,16 @@ class Store_Search extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
-                              Category_Search(datobusqueda.text)));
+                              Category_Search(StringUtils.capitalize(datobusqueda.text, allWords: true))));
+                }else{
+                  Fluttertoast.showToast(
+                      msg: "Debes ingresar datos en el campo",
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.BOTTOM,
+                      backgroundColor: Colors.grey,
+                      textColor: Colors.white,
+                      fontSize: 12.0
+                  );
                 }
               },
             ),
@@ -61,7 +72,16 @@ class Store_Search extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) =>
-                              Products_Search(datobusqueda.text)));
+                              Products_Search(StringUtils.capitalize(datobusqueda.text, allWords: true))));
+                }else{
+                  Fluttertoast.showToast(
+                      msg: "Debes ingresar datos en el campo",
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.BOTTOM,
+                      backgroundColor: Colors.grey,
+                      textColor: Colors.white,
+                      fontSize: 12.0
+                  );
                 }
               },
             ),
