@@ -1,11 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:holaveci/provider_Google.dart';
+import 'package:holaveci/sign_up_main.dart';
 import 'package:holaveci/store_main.dart';
+import 'package:provider/provider.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized(); //Inicializar Servicios
-  Firebase.initializeApp().then((value) {
+  await Firebase.initializeApp().then((value) {
     runApp(const MyApp());
   });
 }
@@ -16,14 +19,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+    return ChangeNotifierProvider(
+        create: (context) => ProviderGoogle(),
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Hola Veci App',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          home: const MyHomePage(title: 'Flutter Demo Home Page'),
+        )
     );
   }
 }
@@ -41,34 +46,20 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(""),
-        backgroundColor: Colors.blueAccent,
-        elevation: 0,
-      ),
-      body: Container(
-        alignment: Alignment.center,
-        color: Colors.blueAccent,
-        padding: EdgeInsets.all(20),
-        child: Wrap(children: [
-          Text(
-            "Bienvenido a Hola Veci",
-            style: TextStyle(
-                fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),
-          ),
-          Image.network(
-            "https://drive.google.com/uc?export=view&id=1-NgBTuBPWhRt7EgdsW1vTq54E7UJhzrK",
-            scale: 3.0,
-          ),
-        ]),
-      ),
-      floatingActionButton: FloatingActionButton.extended(
-          onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => Store_Main()));
-          },
-          icon: Icon(Icons.arrow_forward),
-          label: Text("Ingresar")),
+        body: StreamBuilder(
+            stream: FirebaseAuth.instance.authStateChanges(),
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return Center(child: CircularProgressIndicator(),);
+              } else if (snapshot.hasData){
+                return Store_Main();
+              }else if (snapshot.hasError){
+                return Center(child: Text('Ups Algo Extraño Sucedio'),);
+              }else {
+                return SignUpMain();
+              }
+            }
+        )
     );
   }
 }
