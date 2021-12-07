@@ -129,6 +129,8 @@ class datosNegocio{
   String Productos='';
   int Telefono=0;
   String Web= '';
+  String cedula='';
+
 
   datosNegocio(
       this.Nombre,
