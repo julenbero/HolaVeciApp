@@ -3,6 +3,8 @@
    <application
         android:label="holaveci"
         android:icon="@mipmap/ic_launcher">
+       <meta-data android:name="com.google.android.geo.API_KEY"
+           android:value="AIzaSyDgMwHDyX37Di7ZBqyJBAT8Mn3YryeCXtw"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

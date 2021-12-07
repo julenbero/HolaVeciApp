@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:holaveci/mapas.dart';
 import 'package:holaveci/orders.dart';
 import 'package:holaveci/registerClients.dart';
 import 'package:holaveci/store_search.dart';
@@ -42,6 +43,14 @@ class DrawerNavigation extends StatelessWidget {
             onTap: (){
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => orders()));
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.add_to_home_screen),
+            title: Text("Zona HolaVeci"),
+            onTap: (){
+              Navigator.push(context, MaterialPageRoute(
+                  builder: (context)=>mapas() ));
             },
           )
         ],
