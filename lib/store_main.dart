@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:holaveci/drawer_menu.dart';
+import 'package:holaveci/mapas.dart';
 
 class Store_Main extends StatefulWidget {
   const Store_Main({Key? key}) : super(key: key);
@@ -18,7 +19,7 @@ class _Store_MainState extends State<Store_Main> {
   }
 
   void getNegocios() async {
-    //Funcion para consultar personas
+    //Funcion para consultar negocios
     CollectionReference datos =
         FirebaseFirestore.instance.collection("TiposNegocio");
     QuerySnapshot negocios = await datos.get();
@@ -57,7 +58,21 @@ class _Store_MainState extends State<Store_Main> {
                    elevation: 6,
                     color: Colors.lightBlue,
                     child: ListTile(
-                     leading: CircleAvatar(
+                      onTap: (){
+                        datosNegocioMapa nego = datosNegocioMapa(
+                            tabla_negocios[i]['Nombre'],
+                            tabla_negocios[i]['Categorias'],
+                            tabla_negocios[i]['Celular'],
+                            tabla_negocios[i]['Direccion'],
+                            tabla_negocios[i]['Foto'],
+                            tabla_negocios[i]['Logo'],
+                            tabla_negocios[i]['Productos'],
+                            tabla_negocios[i]['Telefono'],
+                            tabla_negocios[i]['Web'],
+                            tabla_negocios[i]['Geolocalizacion']);
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>mapas(negocioMap: nego)));
+                      },
+                      leading: CircleAvatar(
                        radius: 20,
                        backgroundImage: NetworkImage(tabla_negocios[i]['Logo']),
                      ),
