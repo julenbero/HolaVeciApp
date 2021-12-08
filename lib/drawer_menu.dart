@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:holaveci/mapas.dart';
+import 'package:holaveci/mensaje.dart';
 import 'package:holaveci/orders.dart';
 import 'package:holaveci/provider_Google.dart';
 import 'package:holaveci/registerClients.dart';
@@ -54,11 +56,11 @@ class DrawerNavigation extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.add_to_home_screen),
-            title: Text("Zona HolaVeci"),
+            leading: Icon(Icons.add_shopping_cart),
+            title: Text("Notificaciones"),
             onTap: (){
-              Navigator.push(context, MaterialPageRoute(
-                  builder: (context)=>mapas() ));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => mensaje()));
             },
           ),
           ListTile(
@@ -70,9 +72,34 @@ class DrawerNavigation extends StatelessWidget {
               // Navigator.push(context,
               //     MaterialPageRoute(builder: (context) => orders()));
             },
-          )
+          ),
         ],
       ),
     );
   }
+}
+
+class datosNegocioMapa{
+  String Nombre = '';
+  String Categorias = '';
+  int Celular = 0;
+  String Direccion = '';
+  String Foto = '';
+  String Logo = '';
+  String Productos = '';
+  int Telefono = 0;
+  String Web = '';
+  late GeoPoint Geolocalizacion;
+
+  datosNegocioMapa(
+      this.Nombre,
+      this.Categorias,
+      this.Celular,
+      this.Direccion,
+      this.Foto,
+      this.Logo,
+      this.Productos,
+      this.Telefono,
+      this.Web,
+      this.Geolocalizacion);
 }

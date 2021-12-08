@@ -20,8 +20,7 @@ class store_details extends StatelessWidget {
           miCardNegocio(url: negocio.Foto, texto: 'Nombre del negocio: '+ negocio.Nombre+
               '\n'+'Categoría: '+negocio.Categorias+'\n'+'Productos: '+negocio.Productos+
               '\n'+'Teléfono: '+negocio.Telefono.toString()+'\n'+'Celular: '+negocio.Celular.toString()+
-              '\n'+'Dirección: '+negocio.Direccion+
-              '\n'+'Ubicación: '+negocio.Geolocalizacion+'\n'),
+              '\n'+'Dirección: '+negocio.Direccion+'\n'),
           ElevatedButton(
               onPressed: (){
                 launch(negocio.Web);
