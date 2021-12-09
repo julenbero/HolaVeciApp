@@ -2,6 +2,7 @@ import 'package:basic_utils/basic_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:holaveci/category_search.dart';
+import 'package:holaveci/mapas.dart';
 
 class CategoriesScroll extends StatefulWidget {
   const CategoriesScroll({Key? key}) : super(key: key);
@@ -124,6 +125,20 @@ class _CategoriesScrollState extends State<CategoriesScroll> {
                       elevation: 6,
                       color: Colors.lightBlue,
                       child: ListTile(
+                        onTap: (){
+                          datosNegocioMapa nego = datosNegocioMapa(
+                              tabla_negocios[i]['Nombre'],
+                              tabla_negocios[i]['Categorias'],
+                              tabla_negocios[i]['Celular'],
+                              tabla_negocios[i]['Direccion'],
+                              tabla_negocios[i]['Foto'],
+                              tabla_negocios[i]['Logo'],
+                              tabla_negocios[i]['Productos'],
+                              tabla_negocios[i]['Telefono'],
+                              tabla_negocios[i]['Web'],
+                              tabla_negocios[i]['Geolocalizacion']);
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>mapas(negocioMap: nego)));
+                        },
                         leading: CircleAvatar(
                           radius: 20,
                           backgroundImage:
