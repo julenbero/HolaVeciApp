@@ -4,7 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:holaveci/category_search.dart';
 import 'package:holaveci/drawer_menu.dart';
 import 'package:holaveci/mapas.dart';
-import 'package:holaveci/drawer_menu.dart';
 
 class CategoriesScroll extends StatefulWidget {
   const CategoriesScroll({Key? key}) : super(key: key);
@@ -100,11 +99,18 @@ class _CategoriesScrollState extends State<CategoriesScroll> {
                         margin: EdgeInsets.all(10),
 
                         child: Center(
-                          child: Text(
-                            ListaCategorias[i]['Nombre'],
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, color: Colors.white, fontSize: 18),
-                          ),
+                          child: Stack(
+                          children: [
+                            Text(
+                              ListaCategorias[i]['Nombre'],
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 18, foreground: Paint() ..style = PaintingStyle.stroke ..strokeWidth = 4 ..color = Colors.lightBlue[700]!),
+                            ),
+                            Text(ListaCategorias[i]['Nombre'], style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white))
+                          ],
+                          )
+
+
                         )),
                   );
                 }),

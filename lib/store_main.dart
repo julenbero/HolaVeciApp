@@ -14,10 +14,10 @@ class _Store_MainState extends State<Store_Main> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("Negocios"),
-          actions: [
-            TextButton(onPressed: (){}, child: Text('Cerrar Sesion'))
-          ],
+          title: Text("Listado de Negocios"),
+          // actions: [
+          //   TextButton(onPressed: (){}, child: Text('Cerrar Sesion'))
+          // ],
         ),
         body: Container(
           padding: EdgeInsets.all(10),
