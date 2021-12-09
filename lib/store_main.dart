@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:holaveci/categories_scroll.dart';
 import 'package:holaveci/drawer_menu.dart';
-import 'package:holaveci/mapas.dart';
 
 class Store_Main extends StatefulWidget {
   const Store_Main({Key? key}) : super(key: key);
