@@ -99,11 +99,18 @@ class _CategoriesScrollState extends State<CategoriesScroll> {
                         margin: EdgeInsets.all(10),
 
                         child: Center(
-                          child: Text(
-                            ListaCategorias[i]['Nombre'],
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, color: Colors.white, fontSize: 18),
-                          ),
+                          child: Stack(
+                          children: [
+                            Text(
+                              ListaCategorias[i]['Nombre'],
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 18, foreground: Paint() ..style = PaintingStyle.stroke ..strokeWidth = 4 ..color = Colors.lightBlue[700]!),
+                            ),
+                            Text(ListaCategorias[i]['Nombre'], style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18, color: Colors.white))
+                          ],
+                          )
+
+
                         )),
                   );
                 }),

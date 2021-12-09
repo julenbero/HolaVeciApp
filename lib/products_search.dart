@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:holaveci/store_details.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Products_Search extends StatefulWidget {
   final String datobusqueda;
@@ -36,6 +35,14 @@ class _Products_SearchState extends State<Products_Search> {
       }
     } else {
       print("Ups......Algo Fallo");
+      Fluttertoast.showToast(
+          msg: "No Hay Productos Asociados a la Busqueda. Intenta de Nuevo.....",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          backgroundColor: Colors.grey,
+          textColor: Colors.white,
+          fontSize: 18.0
+      );
     }
   }
 
