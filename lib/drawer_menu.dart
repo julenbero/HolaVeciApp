@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:holaveci/mapas.dart';
 import 'package:holaveci/mensaje.dart';
+import 'package:holaveci/moduloPedido.dart';
 import 'package:holaveci/orders.dart';
 import 'package:holaveci/provider_Google.dart';
 import 'package:holaveci/registerClients.dart';
@@ -61,6 +62,14 @@ class DrawerNavigation extends StatelessWidget {
             onTap: (){
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => mensaje()));
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.add_shopping_cart),
+            title: Text("Modulo Pedido"),
+            onTap: (){
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => moduloPedidos()));
             },
           ),
           ListTile(
