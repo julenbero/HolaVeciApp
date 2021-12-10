@@ -16,7 +16,7 @@ class moduloPedidos extends StatefulWidget {
 
 class _moduloPedidosState extends State<moduloPedidos> {
 
-  final Celular=TextEditingController();
+  final cedula=TextEditingController();
 
   CollectionReference cliente = FirebaseFirestore.instance.collection("Clientes");
 
@@ -32,7 +32,7 @@ class _moduloPedidosState extends State<moduloPedidos> {
           Container(
             padding: EdgeInsets.all(20.0),
             child: TextField(
-              controller: Celular,
+              controller: cedula,
               style: TextStyle(color: Colors.white),
               decoration: InputDecoration(
                   fillColor: Colors.lightBlue,
@@ -48,15 +48,15 @@ class _moduloPedidosState extends State<moduloPedidos> {
             padding: EdgeInsets.all(20.0),
             child: ElevatedButton(
               onPressed: () async {
-                QuerySnapshot verifica = await cliente.where(FieldPath.documentId, isEqualTo: Celular.text).get();
+                QuerySnapshot verifica = await cliente.where(FieldPath.documentId, isEqualTo: cedula.text).get();
                 List lista=[];
                 if(verifica.docs.length>0){
                   for(var cli in verifica.docs){
                     lista.add(cli.data());
-                  }
+                  }git
                   Fluttertoast.showToast(msg: "Comprobación exitosa...", toastLength: Toast.LENGTH_LONG, fontSize: 20, backgroundColor: Colors.red,
                       textColor: Colors.lightGreen, gravity: ToastGravity.CENTER);
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>listaTiendas(Celular: Celular.text)));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>listaTiendas(cedula: cedula.text)));
                 }else{
                   Fluttertoast.showToast(msg: "Datos Incorrectos...", toastLength: Toast.LENGTH_LONG, fontSize: 20, backgroundColor: Colors.red,
                       textColor: Colors.lightGreen, gravity: ToastGravity.CENTER);

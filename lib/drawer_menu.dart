@@ -74,7 +74,7 @@ class DrawerNavigation extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(Icons.add_shopping_cart),
-            title: Text("Modulo Pedido"),
+            title: Text("Modulo Ordenar Productos"),
             onTap: (){
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => moduloPedidos()));
