@@ -43,14 +43,16 @@ class _carritoComprasState extends State<carritoCompras> {
                 },
               );
             }),
-        bottomNavigationBar: confirmar(),
+        bottomNavigationBar: confirmar(pedidoFinal: widget.pedido),
           );
         }
 }
 
 
 class confirmar extends StatelessWidget {
-  const confirmar({Key? key}) : super(key: key);
+
+  final List<datosPedido> pedidoFinal;
+    const confirmar({required this.pedidoFinal});
 
   @override
   Widget build(BuildContext context) {
@@ -71,6 +73,10 @@ class confirmar extends StatelessWidget {
       onTap: (indice){
         if(indice==0){
           Navigator.pop(context);
+        }
+        if(indice==1){
+          int total =0;
+          for(int i=0; <)
         }
       },
     );

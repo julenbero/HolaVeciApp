@@ -8,8 +8,8 @@ import 'drawer_menu.dart';
 import 'main.dart';
 
 class registrarPedido extends StatefulWidget {
-  final String id, Celular;
-  const registrarPedido({required this.id, required this.Celular});
+  final String id, cedula;
+  const registrarPedido({required this.id, required this.cedula});
 
   @override
   _registrarPedidoState createState() => _registrarPedidoState();
@@ -51,7 +51,7 @@ class _registrarPedidoState extends State<registrarPedido> {
           IconButton(
               onPressed: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context)=>carritoCompras(
-                    pedido: pedido, cliente: widget.Celular, negocio: widget.id)));
+                    pedido: pedido, cliente: widget.cedula, negocio: widget.id)));
               },
               icon: Icon(Icons.add_shopping_cart, size: 30, color: Colors.black,))
         ],

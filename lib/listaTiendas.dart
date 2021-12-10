@@ -11,8 +11,8 @@ import 'main.dart';
 
 
 class listaTiendas extends StatefulWidget {
-  final String Celular;
-  const listaTiendas({required this.Celular});
+  final String cedula;
+  const listaTiendas({required this.cedula});
 
   @override
   _listaTiendasState createState() => _listaTiendasState();
@@ -33,14 +33,15 @@ class _listaTiendasState extends State<listaTiendas> {
     String id="";
     if(datos.docs.length >0){
       for(var doc in datos.docs){
-        lista.add(doc.data());
-        id = doc.id.toString();
-        codigos.add(id);
+        setState(() {
+          lista.add(doc.data());
+          id = doc.id.toString();
+          codigos.add(id);
+        });
+
       }
     }
-    setState(() {
 
-    });
   }
   @override
   Widget build(BuildContext context) {
@@ -56,7 +57,7 @@ class _listaTiendasState extends State<listaTiendas> {
             return ListTile(
               title: miCardProducto(url: lista[i]['foto'], texto: lista[i]['Nombre']),
               onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) =>registrarPedido(id: codigos[i], Celular: widget.Celular)));
+                Navigator.push(context, MaterialPageRoute(builder: (context) =>registrarPedido(id: codigos[i], cedula: widget.cedula)));
               },
             );
           }
