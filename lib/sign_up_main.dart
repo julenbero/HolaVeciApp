@@ -14,14 +14,18 @@ class SignUpMain extends StatelessWidget {
       padding: EdgeInsets.all(20),
       child: Column(children: [
         Spacer(),
-        Text(
-          "Bienvenido a Hola Veci",
-          style: TextStyle(
-              fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),
+        // Text(
+        //   "Bienvenido a Hola Veci",
+        //   style: TextStyle(
+        //       fontSize: 25, fontWeight: FontWeight.bold, color: Colors.white),
+        // ),
+        Image.network(
+          "https://firebasestorage.googleapis.com/v0/b/hola-veci-app-88f61.appspot.com/o/Logos%2FLogoVeci.png?alt=media&token=3ded359b-a026-43ae-9625-c8842cb3935e",
+          scale: 1.3,
         ),
         Spacer(),
         Image.network(
-          "https://drive.google.com/uc?export=view&id=1-NgBTuBPWhRt7EgdsW1vTq54E7UJhzrK",
+          "https://firebasestorage.googleapis.com/v0/b/hola-veci-app-88f61.appspot.com/o/Logos%2FLogin_2.png?alt=media&token=5195fb17-42e7-42d9-835c-539f67e8449a",
           scale: 3.0,
         ),
         Spacer(),
