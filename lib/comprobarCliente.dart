@@ -32,7 +32,7 @@ class _comprobarClienteState extends State<comprobarCliente> {
               decoration: InputDecoration(
                   fillColor: Colors.lightBlue,
                   filled: true,
-                  icon: Icon(Icons.person, color: Colors.blue, size: 30),
+                  icon: Icon(Icons.badge, color: Colors.blue, size: 30),
                   hintText: "Ingrese numero de cedula",
                   hintStyle: TextStyle(color: Colors.yellow, fontStyle: FontStyle.italic,fontSize: 14)
               ),
@@ -46,8 +46,8 @@ class _comprobarClienteState extends State<comprobarCliente> {
               decoration: InputDecoration(
                   fillColor: Colors.lightBlue,
                   filled: true,
-                  icon: Icon(Icons.person, color: Colors.blue, size: 30),
-                  hintText: "Ingrese su correo",
+                  icon: Icon(Icons.phone, color: Colors.blue, size: 30),
+                  hintText: "Ingrese Telefono",
                   hintStyle: TextStyle(color: Colors.yellow, fontStyle: FontStyle.italic,fontSize: 14)
               ),
             ),
@@ -56,7 +56,10 @@ class _comprobarClienteState extends State<comprobarCliente> {
             padding: EdgeInsets.all(20.0),
             child: ElevatedButton(
               onPressed: () async {
-                QuerySnapshot verifica = await cliente.where(FieldPath.documentId, isEqualTo: cedula.text).where("telefono", isEqualTo: telefono.text).get();
+                QuerySnapshot verifica = await cliente
+                    .where(FieldPath.documentId, isEqualTo: cedula.text)
+                    .where("telefono", isEqualTo: telefono.text)
+                    .get();
                 List lista=[];
                 if(verifica.docs.length>0){
                   for(var cli in verifica.docs){

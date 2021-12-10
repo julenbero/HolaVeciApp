@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:holaveci/mapas.dart';
+import 'package:holaveci/comprobarCliente.dart';
 import 'package:holaveci/mensaje.dart';
 import 'package:holaveci/orders.dart';
 import 'package:holaveci/provider_Google.dart';
@@ -45,6 +45,14 @@ class DrawerNavigation extends StatelessWidget {
             onTap: (){
               Navigator.push(context,
                   MaterialPageRoute(builder: (context) => registerClients()));
+            },
+          ),
+          ListTile(
+            leading: Icon(Icons.person_search),
+            title: Text("Actualizar Datos"),
+            onTap: (){
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => comprobarCliente()));
             },
           ),
           ListTile(
