@@ -53,7 +53,7 @@ class _moduloPedidosState extends State<moduloPedidos> {
                 if(verifica.docs.length>0){
                   for(var cli in verifica.docs){
                     lista.add(cli.data());
-                  }git
+                  }
                   Fluttertoast.showToast(msg: "Comprobación exitosa...", toastLength: Toast.LENGTH_LONG, fontSize: 20, backgroundColor: Colors.red,
                       textColor: Colors.lightGreen, gravity: ToastGravity.CENTER);
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>listaTiendas(cedula: cedula.text)));
