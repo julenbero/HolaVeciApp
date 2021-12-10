@@ -43,16 +43,14 @@ class _carritoComprasState extends State<carritoCompras> {
                 },
               );
             }),
-        bottomNavigationBar: confirmar(pedidoFinal: widget.pedido),
+        bottomNavigationBar: confirmar(),
           );
         }
 }
 
 
 class confirmar extends StatelessWidget {
-
-  final List<datosPedido> pedidoFinal;
-    const confirmar({required this.pedidoFinal});
+  const confirmar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -74,10 +72,7 @@ class confirmar extends StatelessWidget {
         if(indice==0){
           Navigator.pop(context);
         }
-        if(indice==1){
-          int total =0;
-          for(int i=0; <)
-        }
+
       },
     );
   }
