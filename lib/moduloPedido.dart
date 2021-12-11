@@ -1,8 +1,6 @@
-import 'package:holaveci/store_details.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-//import 'actualizarCliente.dart';
 import 'drawer_menu.dart';
 import 'listaTiendas.dart';
 import 'main.dart';
@@ -18,8 +16,7 @@ class _moduloPedidosState extends State<moduloPedidos> {
 
   final cedula = TextEditingController();
 
-  CollectionReference cliente = FirebaseFirestore.instance.collection(
-      "Clientes");
+  CollectionReference cliente = FirebaseFirestore.instance.collection("Clientes");
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +37,7 @@ class _moduloPedidosState extends State<moduloPedidos> {
                   filled: true,
                   icon: Icon(Icons.person, color: Colors.blue, size: 30),
                   hintText: "Ingrese numero de cedula",
-                  hintStyle: TextStyle(color: Colors.yellow,
+                  hintStyle: TextStyle(color: Colors.white,
                       fontStyle: FontStyle.italic,
                       fontSize: 14)
               ),
@@ -61,8 +58,8 @@ class _moduloPedidosState extends State<moduloPedidos> {
                   Fluttertoast.showToast(msg: "Comprobación exitosa...",
                       toastLength: Toast.LENGTH_LONG,
                       fontSize: 20,
-                      backgroundColor: Colors.red,
-                      textColor: Colors.lightGreen,
+                      backgroundColor: Colors.lightGreen,
+                      textColor: Colors.white,
                       gravity: ToastGravity.CENTER);
                   Navigator.push(context, MaterialPageRoute(
                       builder: (context) => listaTiendas(cedula: cedula.text)));
@@ -70,12 +67,12 @@ class _moduloPedidosState extends State<moduloPedidos> {
                   Fluttertoast.showToast(msg: "Datos Incorrectos...",
                       toastLength: Toast.LENGTH_LONG,
                       fontSize: 20,
-                      backgroundColor: Colors.red,
-                      textColor: Colors.lightGreen,
+                      backgroundColor: Colors.redAccent,
+                      textColor: Colors.white54,
                       gravity: ToastGravity.CENTER);
                 }
               },
-              child: Text("Verificar"),
+              child: Text("Verificar Cedula"),
             ),
           )
         ],
