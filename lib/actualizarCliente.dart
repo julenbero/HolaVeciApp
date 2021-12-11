@@ -3,8 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import "package:fluttertoast/fluttertoast.dart";
 
-
-  class actualizarCliente extends StatefulWidget {
+class actualizarCliente extends StatefulWidget {
   final datosCliente cliente;
   const actualizarCliente({required this.cliente});
 
@@ -109,16 +108,21 @@ class _actualizarClienteState extends State<actualizarCliente> {
                         CollectionReference actualiza = FirebaseFirestore.instance.collection("Clientes");
                         actualiza.doc(widget.cliente.cedula).update({
 
-                          "cedula":Cedula.text,
-                          "nombre":Nombre.text,
-                          "direccion":Direccion.text,
-                          "telefono":Telefono.text,
-                          "celular":Celular.text,
+
+                          "Nombre":Nombre.text,
+                          "Direccion":Direccion.text,
+                          "Telefono":Telefono.text,
+                          "Celular":Celular.text,
 
 
                         });
-                        Fluttertoast.showToast(msg: "Datos Actualizados Exitosamente...", toastLength: Toast.LENGTH_LONG, fontSize: 20, backgroundColor: Colors.red,
-                            textColor: Colors.lightGreen, gravity: ToastGravity.CENTER);
+                        Fluttertoast.showToast(
+                            msg: "Datos actualizados exitosamente",
+                            toastLength: Toast.LENGTH_SHORT,
+                            gravity: ToastGravity.CENTER,
+                            backgroundColor: Colors.grey,
+                            textColor: Colors.white,
+                            fontSize: 18.0);
                         Navigator.pop(context);
                       }
                     },
@@ -131,8 +135,13 @@ class _actualizarClienteState extends State<actualizarCliente> {
                     onPressed: (){
                       CollectionReference elimina = FirebaseFirestore.instance.collection("Clientes");
                       elimina.doc(widget.cliente.cedula).delete();
-                      Fluttertoast.showToast(msg: "Cliente Eliminado...", toastLength: Toast.LENGTH_LONG, fontSize: 20, backgroundColor: Colors.red,
-                          textColor: Colors.lightGreen, gravity: ToastGravity.CENTER);
+                      Fluttertoast.showToast(
+                          msg: "Cliente eliminado",
+                          toastLength: Toast.LENGTH_SHORT,
+                          gravity: ToastGravity.CENTER,
+                          backgroundColor: Colors.grey,
+                          textColor: Colors.white,
+                          fontSize: 18.0);
                       Navigator.pop(context);
                     },
                     child: Text("Eliminar"),
@@ -146,4 +155,3 @@ class _actualizarClienteState extends State<actualizarCliente> {
     );
   }
 }
-

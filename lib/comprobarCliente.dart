@@ -14,6 +14,7 @@ class _comprobarClienteState extends State<comprobarCliente> {
 
   final cedula=TextEditingController();
   final telefono=TextEditingController();
+
   CollectionReference cliente = FirebaseFirestore.instance.collection("Clientes");
 
   @override
@@ -56,22 +57,47 @@ class _comprobarClienteState extends State<comprobarCliente> {
             padding: EdgeInsets.all(20.0),
             child: ElevatedButton(
               onPressed: () async {
-                QuerySnapshot verifica = await cliente
-                    .where(FieldPath.documentId, isEqualTo: cedula.text)
-                    .where("telefono", isEqualTo: telefono.text)
-                    .get();
-                List lista=[];
-                if(verifica.docs.length>0){
-                  for(var cli in verifica.docs){
-                    lista.add(cli.data());
+                if (cedula.text.isEmpty || telefono.text.isEmpty) {
+                print('Campos vacíos');
+                Fluttertoast.showToast(
+                msg: "campos vacios",
+                toastLength: Toast.LENGTH_SHORT,
+                gravity: ToastGravity.CENTER,
+                backgroundColor: Colors.grey,
+                textColor: Colors.white,
+                fontSize: 18.0);
+                } else {
+                  QuerySnapshot verifica = await cliente
+                      .where(FieldPath.documentId, isEqualTo: cedula.text)
+                      .where("Telefono", isEqualTo: telefono.text)
+                      .get();
+                  List lista = [];
+                  if (verifica.docs.length > 0) {
+                    for (var cli in verifica.docs) {
+                      lista.add(cli.data());
+                    }
+                    datosCliente dCli = datosCliente(
+                        cedula.text, lista[0]['Nombre'], lista[0]['Direccion'],
+                        lista[0]['Telefono'], lista[0]['Celular']);
+                    Fluttertoast.showToast(
+                        msg: "Comprobación exitosa",
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.CENTER,
+                        backgroundColor: Colors.grey,
+                        textColor: Colors.white,
+                        fontSize: 18.0);
+                    Navigator.push(context, MaterialPageRoute(
+                        builder: (context) =>
+                            actualizarCliente(cliente: dCli)));
+                  } else {
+                    Fluttertoast.showToast(
+                        msg: "Datos Incorrectos",
+                        toastLength: Toast.LENGTH_SHORT,
+                        gravity: ToastGravity.CENTER,
+                        backgroundColor: Colors.grey,
+                        textColor: Colors.white,
+                        fontSize: 18.0);
                   }
-                  datosCliente dCli = datosCliente(cedula.text, lista[0]['nombre'], lista[0]['direccion'], lista[0]['telefono'], lista[0]['celular']);
-                  Fluttertoast.showToast(msg: "Comprobación exitosa...", toastLength: Toast.LENGTH_LONG, fontSize: 20, backgroundColor: Colors.red,
-                      textColor: Colors.lightGreen, gravity: ToastGravity.CENTER);
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>actualizarCliente(cliente: dCli)));
-                }else{
-                  Fluttertoast.showToast(msg: "Datos Incorrectos...", toastLength: Toast.LENGTH_LONG, fontSize: 20, backgroundColor: Colors.red,
-                      textColor: Colors.lightGreen, gravity: ToastGravity.CENTER);
                 }
               },
               child: Text("Verificar"),
