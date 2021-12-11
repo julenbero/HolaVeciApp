@@ -73,7 +73,7 @@ class DrawerNavigation extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(Icons.add_shopping_cart),
+            leading: Icon(Icons.add_box_outlined),
             title: Text("Modulo Ordenar Productos"),
             onTap: (){
               Navigator.push(context,
